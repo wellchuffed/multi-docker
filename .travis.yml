@@ -7,7 +7,7 @@ before_install:
   - docker build -t wellchuffed/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true USERNAME/react-test npm test
+  - docker run -e CI=true wellchuffed/react-test npm test
 
 after_success:
   - docker build -t wellchuffed/multi-client ./client
@@ -21,4 +21,3 @@ after_success:
   - docker push wellchuffed/multi-nginx
   - docker push wellchuffed/multi-server
   - docker push wellchuffed/multi-worker
-  
